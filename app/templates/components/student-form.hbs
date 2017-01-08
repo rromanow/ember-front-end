@@ -1,0 +1,80 @@
+<div class='row center' style="margin: 0em 0em;">
+  <h2>Contact Information</h2>
+</div>
+<div class='row' style="margin: 0em 0em;">
+  <div class="col s12 m3">
+{{!--     <div class="input-field label">Student's Name
+    </div> --}}
+    <div class="center">
+      <h5>Student's name</h5>
+    </div>
+  </div>
+  {{good-md-input label="First Name"
+    value=lesson_request.student_first_name 
+    type='text' 
+    validate=true 
+    errors=errors.lesson_request.student_first_name 
+    }}
+  {{good-md-input label="Middle Name" 
+    value=lesson_request.student_middle_name
+    type='text'
+    validate=true 
+    }}
+  {{good-md-input label="Last Name" 
+    value=lesson_request.student_last_name
+    type='text'
+    validate=true
+    errors=errors.lesson_request.student_last_name
+    }}
+  <div class="col s12 m3">
+    <div class="center">
+      <h5>Guardian's name</h5>
+    </div>
+  </div>
+  {{good-md-input label="First Name" 
+    value=lesson_request.parent_first_name
+    type='text'
+    errors=errors.lesson_request.parent_first_name
+    validate=true
+    }}
+  {{good-md-input label="Middle Name"
+    value=lesson_request.parent_middle_name
+    type='text'
+    validate=true
+    }}
+  {{good-md-input label="Last Name" 
+    value=lesson_request.parent_last_name
+    type='text'
+    errors=errors.lesson_request.parent_last_name
+    validate=true
+    }}
+  <div class="col s12 m3">
+    <div class="center">
+      <h5>Contact</h5>
+    </div>
+  </div>
+  <div class="col s12 m3">
+  {{md-input-date label="Student's Date of Birth" 
+    value=lesson_request.date_of_birth
+    validate=true
+    errors=errors.lesson_request.date_of_birth
+    }}
+  </div>
+  {{good-md-input label="Contact Email" 
+    errors=errors.lesson_request.email 
+    type='email' 
+    value=lesson_request.email 
+    validate=true
+    }}
+  {{good-md-input label="Contact Phone"
+    value=lesson_request.phone
+    validate=true
+    errors=errors.lesson_request.phone
+    type='tel'
+    }}
+
+</div> 
+<div class="row center">
+  <br><br><br>
+    {{md-btn text='Submit Lesson Request' action='on_click_submit' class='grey-darken-2'disabled=is_submit_button_disabled}}
+</div>

@@ -1,0 +1,30 @@
+// Fix for Roboto font path
+$roboto-font-path: '../assets/';
+
+@import "components/color";
+// Materialize styles
+$primary-color:        color("grey", "darken-3");
+$primary-color-dark:   color("grey", "darken-4");
+$primary-color-light:  #9e9e9e;
+$accent-color:         #e0e0e0;
+$primary-text-color:   #ff6f00;
+$secondary-color:      color("grey", "lighten-1");
+$secondary-text-color: #ff6f00;
+$divider-color:        #B6B6B6;
+$alert-color:          #9e9e9e;
+
+@import "materialize";
+@import 'ember-cli-materialize';
+@import 'components/variables';
+@import "components/mixins";
+
+// app/styles/app.scss 
+ 
+@import 'bower_components/fontawesome/scss/variables';
+@import 'bower_components/fontawesome/scss/path';
+@import 'bower_components/fontawesome/scss/mixins';
+@import 'bower_components/fontawesome/scss/icons';
+ 
+@import 'addons/ember-calendar/paint-core';
+@import 'addons/ember-calendar/main';
+

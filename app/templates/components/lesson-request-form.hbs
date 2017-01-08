@@ -1,0 +1,42 @@
+<div class='right' style='margin: 10px 10px -15px 10px;'>
+  <i class="material-icons clear-button" {{action 'close_request_form' account}}>close</i>
+</div>
+<div class="row">
+  <div class="col s12">
+  {{#if states.confirm_state}}
+    <div class='center'>
+      <h3>Request a lesson</h3>
+      <p> You would like to book a lesson at {{startTime}} to {{endTime}} </p>  
+      {{md-btn text='Yes' action='on_click_confirm'}}
+    </div>
+  {{/if}}
+  {{#if states.question_state}}
+    <div class="center">
+      <h5>Are you a Parent interested in for your child or an adult student?</h5><br>
+      {{md-btn text='Parent' action='on_click_parent'}}
+      {{md-btn text='Adult Student' action='on_click_adult'}}
+    </div>
+  {{/if}}
+  {{#if states.form_parent_state}}
+    {{student-form action='on_click_submit'}}
+  {{/if}}
+  {{#if states.form_adult_state}}
+    {{adult-form}}
+  {{/if}}
+  {{#if states.submitting_state}}
+    <div class="center">
+      <h5>Sending Lesson Request...</h5>
+      {{md-loader}}
+    </div> 
+  {{/if}}
+  {{#if states.error_state}}
+    <div class="center">
+      <p>Error</p>
+    </div>  
+  {{/if}}
+  {{#if states.submitted_state}}
+
+
+  {{/if}}
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="col s12 m3">
+<div class="input-field label">{{label}}
+</div>
+{{input
+  id=id
+  label=label
+  value=value
+  type=type
+  errors=g
+  required=required
+  pattern=pattern
+  maxlength=maxlength
+  readonly=readonly
+  disabled=disabled
+  autocomplete=autocomplete
+  autofocus=autofocus
+  step=step
+  placeholder=placeholder
+  min=min
+  validate=true
+  max=max
+  focus-out='showErrors'
+  }}
+<div class="space">
+  
+{{#if errors}}
+  {{#if showError}}
+    <small class="red-text selectWithIcon">{{error_message}}</small>
+  {{else}}
+    <small class="red-text selectWithIcon"> </small>
+  {{/if}}
+{{else}}
+  <small class="red-text selectWithIcon"> </small>
+{{/if}}
+</div>
+</div>
+
+<style type="text/css">
+.input-field label {
+  left: 0px;
+}
+.input-field {
+  margin: 0;
+}
+.space{
+  height: 15px;
+  top: -20px;
+  margin-bottom: 25px;
+} 
+.validate.ember-view.ember-text-field{
+  margin: 0;
+}
+.ember-view.ember-text-field{
+  margin: 0;
+}
+</style>

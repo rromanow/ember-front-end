@@ -1,0 +1,82 @@
+{{#if is_modal_shown}}
+  <style type="text/css">
+    /*HACK to make the drop down work in a modal*/
+    .modal {
+      overflow-y: visible;
+    }
+  </style>
+  {{#md-modal close='toggle_modal'}}
+    <div class="picker__date-display" style="padding-bottom: 0px;">
+      <div class="picker__weekday-display">BIRTHDAY</div>
+    </div>
+    <div class="modal-content modal-content-dob" style="padding-top:0px;">
+
+      {{#if error_msg}}
+        <div class="center-align">
+          <div class="alert alert-danger">
+            {{error_msg}}
+          </div>
+        </div>
+      {{/if}}
+
+      <div class="row">
+        <div class="col s12 m12">
+          {{clear-select-x
+          class="dob-month"
+          label="Month"
+          content=MONTHS
+          value=month}}
+        </div>
+        <div class="col s12 m12">
+          {{clear-select-x
+          class="dob-day"
+          label="Day"
+          content=DAYS
+          value=day}}
+        </div>
+        <div class="col s12 m12">
+          {{clear-select-x
+          class="dob-year"
+          label="Year"
+          content=YEARS
+          value=year}}
+        </div>
+      </div>
+
+      <div class="right-align">
+        {{md-btn text="OK" action="on_click_ok" class="btn-large waves-effect waves-light"}}
+      </div>
+
+    </div>
+  {{/md-modal}}
+{{/if}}
+
+{{#if icon}}
+  {{#if value}}
+      <i class="{{icon}} prefix green-text" ></i>
+  {{/if}}
+  {{#if errors}}
+    <i class="{{icon}} prefix red-text" ></i>
+  {{/if}}
+  {{#unless value}}
+    {{#unless errors}}
+    <i class="{{icon}} prefix" ></i>
+    {{/unless}}
+  {{/unless}}
+{{/if}}
+
+<input type="text"
+  id="{{id}}"
+  class="{{if validate 'validate'}} {{if errors 'invalid'}} {{if value 'valid'}} dobpicker"
+  data-value="{{value}}"
+  required={{required}}
+  onfocus="this.blur()"
+  readonly=""
+  tabindex=-1
+  disabled={{disabled}} />
+
+  <label for="{{id}}" class="{{if isActive "active"}}">{{label}}</label>
+
+  <small class="red-text selectWithIcon">
+    {{#if errors}} {{errors.firstObject.message}} {{else}} &nbsp; {{/if}}
+  </small>

@@ -1,0 +1,33 @@
+{{#if request_form_is_open}}
+  {{#md-modal}}
+    {{lesson-request-form lesson=occurrences.lastObject close_request_form='close_request_form'}}
+  {{/md-modal}}
+{{/if}}
+
+{{as-calendar
+  title="Weekly Schedule"
+  occurrences=occurrences
+  dayStartingTime="4:00"
+  dayEndingTime="22:00"
+  showTimeZoneSearch=false
+  timeZone="America/Vancouver" 
+  defaultOccurrenceTitle="New Lesson"
+  onAddOccurrence=(action "calendarAddOccurrence")
+  onUpdateOccurrence=(action "calendarUpdateOccurrence")
+  onRemoveOccurrence=(action "calendarRemoveOccurrence")
+  timeSlotDuration="00:30"
+
+  }}
+
+<style>
+.as-calendar-occurrence {
+    background-color: #bdbdbd;
+    border-left: 2px solid #616161;
+    color: #ffffff;
+    left: 0;
+    padding: 0 0.375rem;
+    position: absolute;
+    right: 0;
+}
+</style>
+{{yield}}
